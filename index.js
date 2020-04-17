@@ -61,7 +61,8 @@ async function createUser(email, password, firstName, lastName){
             numberOfVotes: 1,
             unit: choose([1,2,3]),
             firstName: firstName,
-            lastName: lastName
+            lastName: lastName,
+            name: firstName + " " + lastName
         }
         localStorage.setItem('userData', JSON.stringify(userData));
         usersRef.doc(firstName + '-' + lastName).set(userData)

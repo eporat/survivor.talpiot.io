@@ -23,7 +23,7 @@ async function createTable(){
     const dict = {'a': [], 'b': [], 'c': []};
 
     for (let userData of data){
-        dict[userData.clan].push(userData.firstName + ' ' + userData.lastName);
+        dict[userData.clan].push(userData.name);
     }
 
     for (let clan of Object.keys(dict)) {

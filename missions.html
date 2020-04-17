@@ -35,33 +35,28 @@
 
         <h1 class="title">השרדות</h1>
 
-        <h2 class="title">מצב השבטים</h1>
+        <h2 class="title">משימות</h1>
+
+        <div id="mission">משימה</div>
 
         <div class="voting"></div>
 
-        <table class="table" id="clans-a">
+        <table class="table" id="my-clan">
             <thead class="thead-light">
             <tr>
-                <th scope="col">a</th>
+                <th scope="col">השבט שלי</th>
             </tr>
             </thead>
         </table>
 
-        <table class="table" id="clans-b">
+        <table class="table" id="other-clan">
             <thead class="thead-light">
                 <tr>
-                <th scope="col">b</th>
+                <th scope="col">השבט היריב</th>
             </tr>
             </thead>
         </table>
 
-        <table class="table" id="clans-c">
-            <thead class="thead-light">
-                <tr>
-                <th scope="col">c</th>
-            </tr>
-            </thead>
-        </table>
     </body>
 
       
@@ -81,9 +76,14 @@
         td {
             text-align: center;
         }
+        #mission {
+            text-align: center;
+            font-size: x-large;
+            padding:5%
+        }
     
         </style>
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="clans.js"></script>
+    <script src="missions.js"></script>
 </html>
