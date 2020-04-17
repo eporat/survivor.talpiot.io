@@ -49,6 +49,7 @@ async function login(){
 async function createUser(email, password, firstName, lastName){
     firebase.auth().createUserWithEmailAndPassword(email, password)
     .catch(error => {
+        Promise.reject(error);
     })
     .then(user => {
         const userData = {
