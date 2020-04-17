@@ -52,7 +52,6 @@ async function createUser(email, password, firstName, lastName){
     })
     .then(user => {
         const userData = {
-            clan: "undefined",
             email: email,
             clan: choose("abc"),
             immunity: false,
