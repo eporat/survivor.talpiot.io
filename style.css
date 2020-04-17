@@ -1,7 +1,10 @@
 .title {
     text-align: center;
 }
-
+#center {
+    margin: 10px auto 20px;
+    display: block;
+}   
 :root {
     --input-padding-x: 1.5rem;
     --input-padding-y: .75rem;
@@ -14,7 +17,8 @@
     background: #007bff;
     background: linear-gradient(to right, #0062E6, #33AEFF);
   } */
-  
+
+
   .card-signin {
     border: 0;
     border-radius: 1rem;
