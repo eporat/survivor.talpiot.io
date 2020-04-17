@@ -29,12 +29,21 @@ async function createTable(){
         if (mission.a.includes(user.name)){
             myTeam = mission.a;
             opponentTeam = mission.b;
-            myMission = mission 
+            myMission = mission;
+            document.getElementById("my-th").style.backgroundColor =  "darkblue";
+            document.getElementById("my-th").style.color =  "white";
+            document.getElementById("other-th").style.backgroundColor =  "darkred";
+            document.getElementById("other-th").style.color = "white"
         } 
         else if (mission.b.includes(user.name)){
             myTeam = mission.b;
             opponentTeam = mission.a;
             myMission = mission 
+            document.getElementById("my-th").style.backgroundColor =  "darkred";
+            document.getElementById("my-th").style.color =  "white";
+            document.getElementById("other-th").style.backgroundColor =  "darkblue";
+            document.getElementById("other-th").style.color = "white"
+
         }
     }
 
