@@ -1,11 +1,6 @@
 .title {
     text-align: center;
 }
-#center {
-    padding-bottom: 2%;
-    margin: 10px auto 20px;
-    display: block;
-}   
 
 .title {
     padding-bottom: 2%;
@@ -16,12 +11,13 @@
     display: table;
     margin: 0 auto
 }
-#center {
+#center 
+{
         margin: 10px auto 20px;
         display: block;
-        width: 30%;
-        height: 30%
-    }
+        width: 15%;
+        height: 15%
+}
 
 
 .title {

@@ -49,7 +49,8 @@ async function login(){
 async function createUser(email, password, firstName, lastName){
     firebase.auth().createUserWithEmailAndPassword(email, password)
     .catch(error => {
-        Promise.reject(error);
+        alert(error);
+        throw new Error();
     })
     .then(user => {
         const userData = {
@@ -65,8 +66,9 @@ async function createUser(email, password, firstName, lastName){
         localStorage.setItem('userData', JSON.stringify(userData));
         usersRef.doc(firstName + '-' + lastName).set(userData)
         .catch(error => {
-            Promise.reject(error);
-        })
+            alert(error);
+            throw new Error();
+         })
         .then(() => {
             document.location.href = "user.html"
         })
