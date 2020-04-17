@@ -2,6 +2,7 @@
     text-align: center;
 }
 #center {
+    padding-bottom: 2%;
     margin: 10px auto 20px;
     display: block;
 }   

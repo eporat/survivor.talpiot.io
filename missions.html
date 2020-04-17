@@ -35,12 +35,13 @@
         #mission {
             text-align: center;
             font-size: x-large;
-            padding:0%
+            padding-bottom:2%
         }
         #center {
             margin: 10px auto 20px;
             display: block;
         }
+
     </style>
 
 
@@ -70,21 +71,25 @@
 
         <div class="voting"></div>
 
-        <table class="table" id="my-clan">
-            <thead class="thead-light">
-            <tr>
-                <th scope="col">השבט שלי</th>
-            </tr>
-            </thead>
-        </table>
-
-        <table class="table" id="other-clan">
-            <thead class="thead-light">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+            <table class="table" id="my-clan" style="float: left">
+                <thead class="thead-light">
                 <tr>
-                <th scope="col">השבט היריב</th>
-            </tr>
-            </thead>
-        </table>
+                    <th scope="col">השבט שלי</th>
+                </tr>
+                </thead>
+            </table>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="float: right">
+            <table class="table md" id="other-clan" style = "float: right">
+                <thead class="thead-light">
+                    <tr>
+                    <th scope="col">השבט היריב</th>
+                </tr>
+                </thead>
+            </table>
+        </div>
 
     </body>
 
