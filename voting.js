@@ -26,7 +26,7 @@ function addRadioButton(text) {
     var element = document.createElement("input");
     //Assign different attributes to the element.
     element.setAttribute("type", "radio");
-    element.setAttribute("value", "You have chosen " + text);
+    element.setAttribute("value", "בחרת ב" + text);
     element.setAttribute("name", "optradio");
     element.setAttribute("class", "radio");
     label.className = "d-block";
