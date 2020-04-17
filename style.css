@@ -6,6 +6,38 @@
     margin: 10px auto 20px;
     display: block;
 }   
+
+.title {
+    padding-bottom: 2%;
+    text-align: center;
+    }
+.form-group {
+    padding-top: 2%;
+    display: table;
+    margin: 0 auto
+}
+#center {
+        margin: 10px auto 20px;
+        display: block;
+    }
+
+
+.title {
+text-align: center;
+padding-bottom: 2%;
+}
+.form-group {
+    padding-top: 2%;
+    display: table;
+    margin: 0 auto
+}
+th {
+    text-align: center;
+}
+td {
+    text-align: center;
+}
+
 :root {
     --input-padding-x: 1.5rem;
     --input-padding-y: .75rem;
