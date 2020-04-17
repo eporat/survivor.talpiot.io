@@ -32,7 +32,6 @@ async function login(){
     const firstName = email.split("@")[0].split(".")[0];
     const lastName = email.split("@")[0].split(".")[1];
     const password = document.getElementById("inputPassword").value;
-    console.log(email + " " + password)
     firebase.auth().signInWithEmailAndPassword(email, password)
     .then(() => usersRef.doc(firstName + '-' + lastName).get())
     .then(doc => {
@@ -50,7 +49,6 @@ async function login(){
 async function createUser(email, password, firstName, lastName){
     firebase.auth().createUserWithEmailAndPassword(email, password)
     .catch(error => {
-        alert(error);
     })
     .then(user => {
         const userData = {
@@ -67,7 +65,6 @@ async function createUser(email, password, firstName, lastName){
         localStorage.setItem('userData', JSON.stringify(userData));
         usersRef.doc(firstName + '-' + lastName).set(userData)
         .catch(error => {
-            alert(error);
             Promise.reject(error);
         })
         .then(() => {
