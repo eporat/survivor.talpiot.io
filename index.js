@@ -67,16 +67,13 @@ async function createUser(email, password, firstName, lastName){
         usersRef.doc(firstName + '-' + lastName).set(userData)
         .catch(error => {
             alert(error);
+            Promise.reject(error);
         })
         .then(() => {
             document.location.href = "user.html"
         })
     
     })
-    .catch(error =>{
-        alert(error);
-    })
-    
 }
 
 function choose(choices) {

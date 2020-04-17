@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' http://* 'unsafe-inline'; script-src 'self' http://* 'unsafe-inline' 'unsafe-eval'" />
+    <title>Survivor</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-analytics.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-analytics.js"></script>
+
+
+    <body>
+        <nav class="navbar navbar-expand-sm bg-light navbar-light" dir="rtl">
+            <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link active" href="voting.html">הצבעה</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="clans.html">מצב השבטים</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">משימות שבועיות</a>
+            </li>
+            </ul>
+        </nav>
+
+        <h1 class="title">השרדות</h1>
+
+        <h2 class="title">מצב השבטים</h1>
+
+        <div class="voting"></div>
+
+        <table class="table" id="clans-a">
+            <thead>
+            <tr>
+                <th scope="col">a</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+
+        <table class="table" id="clans-b">
+            <thead>
+            <tr>
+                <th scope="col">b</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+
+        <table class="table" id="clans-c">
+            <thead>
+            <tr>
+                <th scope="col">c</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    </body>
+
+      
+    <style>
+
+        .title {
+        text-align: center;
+        }
+        .form-group {
+            padding-top: 2%;
+            display: table;
+            margin: 0 auto
+        }
+        th {
+            text-align: center;
+        }
+    
+        </style>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="clans.js"></script>
+</html>
