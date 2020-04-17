@@ -13,7 +13,6 @@ firebase.initializeApp(firebaseConfig);
 
 const database = firebase.firestore();
 const usersRef = database.collection("users");
-console.log(localStorage.getItem("userData"))
 const user = JSON.parse(localStorage.getItem("userData"));
 
 const clan = user.clan;
@@ -47,7 +46,7 @@ usersRef
     querySnapshot.forEach((doc) => {
         const data = doc.data();
         if (data.email != user.email){
-            addRadioButton(capitalizeFirstLetter(data.firstName) + " " + capitalizeFirstLetter(data.lastName));
+            addRadioButton(data.name);
         }
     })
 })
