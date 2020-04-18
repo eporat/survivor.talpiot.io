@@ -1,7 +1,12 @@
 .title {
     padding-bottom: 2%;
     text-align: center;
-    }
+}
+#centervideo { 
+    display: block;
+    margin: 0 auto;
+}
+
 .form-group {
     padding-top: 2%;
     display: table;
