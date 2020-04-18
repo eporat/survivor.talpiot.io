@@ -10,7 +10,11 @@ const firebaseConfig = {
 };
   // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-
+const colors = {
+    "a": "darkblue",
+    "b": "darkred",
+    "c": "darkgreen"
+}
 
 async function getData(name) {
     const snapshot = await firebase.firestore().collection(name).get()
@@ -19,47 +23,50 @@ async function getData(name) {
 
 async function createTable(){
     let data = await getData('missions');
-    const user = JSON.parse(localStorage.getItem("userData"));
-    let myTeam = [];
-    let opponentTeam = [];
+    const myUser = JSON.parse(localStorage.getItem("userData"));
+    let teams = {};
     let myMission;
-    console.log(user);
-    console.log(data);
+    let units = [];
     for (mission of data){
-        if (mission.unit == user.unit){
-            // myTeam = mission.a;
-            // opponentTeam = mission.b;
+        if (mission.units && mission.units.includes(myUser.clan+myUser.unit)){
+            document.getElementById("my-th").style.backgroundColor = colors[myUser.clan];
+            units = mission.units.slice()
+            units.splice(units.indexOf(myUser.clan+myUser.unit), 1);
+            console.log(units);
+            for (let key of mission.units){
+                teams[key] = [];
+            }
+            if (units.length == 1){
+                let otherClan = units[0];
+                document.getElementById("other-th-0").style.backgroundColor =  colors[otherClan[0]];
+                document.getElementById("other-clan-1").style.display = "none"
+            }
+            else {
+                let clan1 = units[0];
+                let clan2 = units[1];
+                console.log(clan1[0])
+
+                document.getElementById("other-th-0").style.backgroundColor =  colors[clan1[0]];
+                document.getElementById("other-th-1").style.backgroundColor =  colors[clan2[0]];
+
+            }
             myMission = mission;
-            if (user.clan == "a"){
-                document.getElementById("my-th").style.backgroundColor =  "darkblue";
-                document.getElementById("my-th").style.color =  "white";
-                document.getElementById("other-th").style.backgroundColor =  "darkred";
-                document.getElementById("other-th").style.color = "white"
-            }
-            else if (user.clan == "b"){
-                document.getElementById("my-th").style.backgroundColor =  "darkred";
-                document.getElementById("my-th").style.color =  "white";
-                document.getElementById("other-th").style.backgroundColor =  "darkblue";
-                document.getElementById("other-th").style.color = "white"
-            }
         }
     }
 
     data = await getData('users');
 
-    for (other of data){
-        if (user.unit == other.unit){
-            if (user.clan == other.clan){
-                myTeam.push(other.name);
-            }
-            else {
-                opponentTeam.push(other.name);
-            }
+    for (user of data){
+        if (myMission.units.includes(user.clan+user.unit)){
+            teams[user.clan+user.unit].push(user.name);
         }
     }
 
+    console.log(teams);
+    console.log(units);
+
     const myTable = document.getElementById("my-clan");
-    for (let name of myTeam){
+    for (let name of teams[myUser.clan + myUser.unit]){
         var txt = document.createTextNode(name);
         var tr = document.createElement("tr");
         var td = document.createElement("td");
@@ -68,14 +75,16 @@ async function createTable(){
         myTable.appendChild(tr);
     }
 
-    const opponentTable = document.getElementById("other-clan");
-    for (let name of opponentTeam){
-        var txt = document.createTextNode(name);
-        var tr = document.createElement("tr");
-        var td = document.createElement("td");
-        td.appendChild(txt);
-        tr.appendChild(td);
-        opponentTable.appendChild(tr);
+    for (let i = 0; i < units.length; i++){
+        const opponentTable = document.getElementById("other-clan-"+i);
+        for (let name of teams[units[i]]){
+            var txt = document.createTextNode(name);
+            var tr = document.createElement("tr");
+            var td = document.createElement("td");
+            td.appendChild(txt);
+            tr.appendChild(td);
+            opponentTable.appendChild(tr);
+        }
     }
 
     var missionHeader = document.getElementById("mission");
