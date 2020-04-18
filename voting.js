@@ -62,23 +62,27 @@ async function vote(){
     let userDoc = await usersRef.doc(user.firstName + "-" + user.lastName).get()
     let userVoted = userDoc.data().voted;
 
-    if (!userVoted){
-        const doc = await votesRef.doc(voted).get()
-        const data = doc.data();
-        if (data){
-            numberOfVotes = 0 || data.votes;
-            console.log(doc);
-            console.log(numberOfVotes);
-            voters = data.voters || [];
-        }
-        
-        if (!voters.includes(user.name)){
-            voters.push(user.name);
-            votesRef
-            .doc(voted)
-            .set({"votes": numberOfVotes + user.numberOfVotes, "voters": voters})
-        }
-
-        usersRef.doc(user.firstName + "-" + user.lastName).update({"voted": true});
+    if (userVoted){
+        alert("הצבעת כבר");
+        return;
     }
+    const doc = await votesRef.doc(voted).get()
+    const data = doc.data();
+    if (data){
+        numberOfVotes = 0 || data.votes;
+        console.log(doc);
+        console.log(numberOfVotes);
+        voters = data.voters || [];
+    }
+    
+    if (!voters.includes(user.name)){
+        voters.push(user.name);
+        votesRef
+        .doc(voted)
+        .set({"votes": numberOfVotes + user.numberOfVotes, "voters": voters})
+    }
+
+    usersRef.doc(user.firstName + "-" + user.lastName).update({"voted": true});
+    alert("הצבעת ל" + voted);
+
 }
