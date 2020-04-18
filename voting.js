@@ -48,7 +48,7 @@ usersRef
 .then((querySnapshot) => {
     querySnapshot.forEach((doc) => {
         const data = doc.data();
-        if (data.email != user.email && !data.immunity){
+        if (data.name != user.name && !data.immunity){
             addRadioButton(data);
         }
     })
