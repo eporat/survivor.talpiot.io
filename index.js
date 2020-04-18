@@ -55,7 +55,7 @@ async function createUser(email, password, firstName, lastName){
     .then(user => {
         const userData = {
             email: email,
-            clan: choose("abc"),
+            clan: choose("ab"),
             immunity: false,
             numberOfVotes: 1,
             unit: choose([1,2,3]),

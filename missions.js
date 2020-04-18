@@ -12,13 +12,13 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 
-async function getData() {
-    const snapshot = await firebase.firestore().collection('missions').get()
+async function getData(name) {
+    const snapshot = await firebase.firestore().collection(name).get()
     return snapshot.docs.map(doc => doc.data());
 }
 
 async function createTable(){
-    const data = await getData();
+    let data = await getData('missions');
     const user = JSON.parse(localStorage.getItem("userData"));
     let myTeam = [];
     let opponentTeam = [];
@@ -26,24 +26,35 @@ async function createTable(){
     console.log(user);
     console.log(data);
     for (mission of data){
-        if (mission.a.includes(user.name)){
-            myTeam = mission.a;
-            opponentTeam = mission.b;
+        if (mission.unit == user.unit){
+            // myTeam = mission.a;
+            // opponentTeam = mission.b;
             myMission = mission;
-            document.getElementById("my-th").style.backgroundColor =  "darkblue";
-            document.getElementById("my-th").style.color =  "white";
-            document.getElementById("other-th").style.backgroundColor =  "darkred";
-            document.getElementById("other-th").style.color = "white"
-        } 
-        else if (mission.b.includes(user.name)){
-            myTeam = mission.b;
-            opponentTeam = mission.a;
-            myMission = mission 
-            document.getElementById("my-th").style.backgroundColor =  "darkred";
-            document.getElementById("my-th").style.color =  "white";
-            document.getElementById("other-th").style.backgroundColor =  "darkblue";
-            document.getElementById("other-th").style.color = "white"
+            if (user.clan == "a"){
+                document.getElementById("my-th").style.backgroundColor =  "darkblue";
+                document.getElementById("my-th").style.color =  "white";
+                document.getElementById("other-th").style.backgroundColor =  "darkred";
+                document.getElementById("other-th").style.color = "white"
+            }
+            else if (user.clan == "b"){
+                document.getElementById("my-th").style.backgroundColor =  "darkred";
+                document.getElementById("my-th").style.color =  "white";
+                document.getElementById("other-th").style.backgroundColor =  "darkblue";
+                document.getElementById("other-th").style.color = "white"
+            }
+        }
+    }
 
+    data = await getData('users');
+
+    for (other of data){
+        if (user.unit == other.unit){
+            if (user.clan == other.clan){
+                myTeam.push(other.name);
+            }
+            else {
+                opponentTeam.push(other.name);
+            }
         }
     }
 
@@ -71,4 +82,5 @@ async function createTable(){
     console.log(missionHeader)
     missionHeader.innerText = myMission.mission;
 }
+
 createTable();

@@ -1,8 +1,4 @@
 .title {
-    text-align: center;
-}
-
-.title {
     padding-bottom: 2%;
     text-align: center;
     }
@@ -11,24 +7,25 @@
     display: table;
     margin: 0 auto
 }
-#center 
+#logo 
 {
-        margin: 10px auto 20px;
-        display: block;
-        width: 15%;
-        height: 15%
+    float: right;
+    width: 40%;
+    height: 40%;
 }
-
+.navbar-brand
+{
+    position: relative;
+    width: 20%;
+    left: 15px;
+    height: 20%; 
+}
 
 .title {
 text-align: center;
 padding-bottom: 2%;
 }
-.form-group {
-    padding-top: 2%;
-    display: table;
-    margin: 0 auto
-}
+
 th {
     text-align: center;
 }
@@ -40,10 +37,10 @@ td {
     --input-padding-x: 1.5rem;
     --input-padding-y: .75rem;
   }
-  
+/*   
   body {
     padding-top: 60px;
-  }
+  } */
   /* body {
     background: #007bff;
     background: linear-gradient(to right, #0062E6, #33AEFF);
