@@ -28,54 +28,30 @@ firebase.auth().onAuthStateChanged(user=>{
 
 
 async function login(){
-    const email = document.getElementById("inputEmail").value;
-    const firstName = email.split("@")[0].split(".")[0];
-    const lastName = email.split("@")[0].split(".")[1];
-    const password = document.getElementById("inputPassword").value;
-    firebase.auth().signInWithEmailAndPassword(email, password)
-    .then(() => usersRef.doc(firstName + '-' + lastName).get())
-    .then(doc => {
-        const data = doc.data();
-        localStorage.setItem('userData', JSON.stringify(data))
-        document.location.href = "user.html"    
-    })
-    .catch(error => {
-        createUser(email,password,firstName,lastName); 
-    })
-    
+    const name = document.getElementById("name").value;
 
-}
-
-async function createUser(email, password, firstName, lastName){
-    firebase.auth().createUserWithEmailAndPassword(email, password)
-    .catch(error => {
-        alert(error);
-        throw new Error();
-    })
-    .then(user => {
+    const doc = await usersRef.doc(name).get();
+    if (doc.data()) {
+        userData = doc.data();
+        localStorage.setItem('userData', JSON.stringify(userData));
+    }
+    else {
         const clan = choose();
         const userData = {
-            email: email,
             clan: clan,
             immunity: false,
             numberOfVotes: 1,
             unit: chooseUnit(clan),
             voted: false,
-            firstName: firstName,
-            lastName: lastName,
-            name: firstName + " " + lastName
+            name: name
         }
         localStorage.setItem('userData', JSON.stringify(userData));
-        usersRef.doc(firstName + '-' + lastName).set(userData)
-        .catch(error => {
-            alert(error);
-            throw new Error();
-         })
-        .then(() => {
-            document.location.href = "user.html"
-        })
-    
-    })
+        usersRef.doc(name).set(userData)
+
+    }
+
+    document.location.href = "user.html"
+
 }
 
 function choose() {

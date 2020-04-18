@@ -59,7 +59,7 @@ async function vote(){
     const voted = document.querySelector('input:checked').value;
     let numberOfVotes = 0;
     let voters = [];
-    let userDoc = await usersRef.doc(user.firstName + "-" + user.lastName).get()
+    let userDoc = await usersRef.doc(user.name).get()
     let userVoted = userDoc.data().voted;
 
     if (userVoted){
@@ -82,7 +82,7 @@ async function vote(){
         .set({"votes": numberOfVotes + user.numberOfVotes, "voters": voters})
     }
 
-    usersRef.doc(user.firstName + "-" + user.lastName).update({"voted": true});
+    usersRef.doc(user.name).update({"voted": true});
     alert("הצבעת ל" + voted);
 
 }
