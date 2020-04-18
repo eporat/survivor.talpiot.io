@@ -14,18 +14,6 @@ firebase.initializeApp(firebaseConfig);
 const database = firebase.firestore();
 const usersRef = database.collection("users");
 
-firebase.auth().onAuthStateChanged(user=>{
-    if (user) {
-        // store the user on local storage
-        currentUser = user;
-        // localStorage.setItem('user', JSON.stringify(user));
-    } else {
-        // removes the user from local storage on logOut
-        // localStorage.removeItem('user');
-    }
-})
-
-
 
 async function login(){
     const name = document.getElementById("name").value;
@@ -46,7 +34,7 @@ async function login(){
             name: name
         }
         localStorage.setItem('userData', JSON.stringify(userData));
-        usersRef.doc(name).set(userData)
+        await usersRef.doc(name).set(userData)
 
     }
 
