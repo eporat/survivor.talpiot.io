@@ -25,10 +25,8 @@
     left: 15px;
     height: 20%; 
 }
-h1 {
-    padding-top: 5%;
-}
 .title {
+padding-top: 5%;
 text-align: center;
 padding-bottom: 2%;
 }
