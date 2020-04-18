@@ -53,12 +53,13 @@ async function createUser(email, password, firstName, lastName){
         throw new Error();
     })
     .then(user => {
+        const clan = choose();
         const userData = {
             email: email,
-            clan: choose("abc"),
+            clan: clan,
             immunity: false,
             numberOfVotes: 1,
-            unit: choose([1,2]),
+            unit: chooseUnit(clan),
             voted: false,
             firstName: firstName,
             lastName: lastName,
@@ -77,7 +78,27 @@ async function createUser(email, password, firstName, lastName){
     })
 }
 
-function choose(choices) {
-    var index = Math.floor(Math.random() * choices.length);
-    return choices[index];
+function choose() {
+    const r = Math.random();
+    if (r < 0.4) {
+        return "a"
+    } else if (r < 0.8) {
+        return "b"
+    }
+    return "c";
+
+}
+
+
+function chooseUnit(clan) {
+    const r = Math.random();
+    console.log(r);
+    if (clan == "c"){
+        return 1;
+    }
+    if (r < 0.5) {
+        return 1;
+    } else {
+        return 2;
+    }
 }

@@ -30,6 +30,8 @@ async function createTable(){
     for (mission of data){
         if (mission.units && mission.units.includes(myUser.clan+myUser.unit)){
             document.getElementById("my-th").style.backgroundColor = colors[myUser.clan];
+            document.getElementById("my-clan").style.display = "table"
+
             units = mission.units.slice()
             units.splice(units.indexOf(myUser.clan+myUser.unit), 1);
             console.log(units);
@@ -39,7 +41,7 @@ async function createTable(){
             if (units.length == 1){
                 let otherClan = units[0];
                 document.getElementById("other-th-0").style.backgroundColor =  colors[otherClan[0]];
-                document.getElementById("other-clan-1").style.display = "none"
+                document.getElementById("other-clan-0").style.display = "table"
             }
             else {
                 let clan1 = units[0];
@@ -48,6 +50,9 @@ async function createTable(){
 
                 document.getElementById("other-th-0").style.backgroundColor =  colors[clan1[0]];
                 document.getElementById("other-th-1").style.backgroundColor =  colors[clan2[0]];
+                document.getElementById("other-clan-0").style.display = "table"
+                document.getElementById("other-clan-1").style.display = "table"
+
 
             }
             myMission = mission;
