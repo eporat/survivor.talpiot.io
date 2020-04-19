@@ -23,11 +23,10 @@ console.log(user);
 
 function addRadioButton(data) {
     var text = data.name;
-    var table = document.getElementById("clan-members");
-    var tr = document.createElement("tr");
-    var td = document.createElement("td");
-    tr.appendChild(td);
-    table.appendChild(tr);
+    var div = document.getElementById("clan-members");
+
+    var wrapper = document.createElement("div");
+    wrapper.id = "wrapper"
     var label = document.createElement("label");
     var element = document.createElement("input");
     //Assign different attributes to the element.
@@ -38,7 +37,8 @@ function addRadioButton(data) {
     label.innerHTML += text;
     label.className = "btn btn-primary";
     label.appendChild(element);  
-    td.appendChild(label);
+    wrapper.appendChild(label)
+    div.appendChild(wrapper);
 }
 function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);

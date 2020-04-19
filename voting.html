@@ -43,17 +43,34 @@
         </ul>
     </nav>
 
+    <style>
+        .button-container {
+            overflow-x: auto;
+            display: block;
+            margin-right: 10%;
+        }   
+
+    .button-container > #wrapper {
+        display: table;
+        margin: 0 auto;
+        float: right;
+    }
+
+    label {
+        width: 200px;
+    }
+    </style>
 
     <h1 class="title">הצבעה</h1>
 
     <div class="voting"></div>
     <body style="width: 100%;">
-        <div class="btn-group" data-toggle="buttons" style="display: table; margin: 0 auto;">
-            <table class="table table-hover">
+        <div class="button-container" id="clan-members">
+            <!-- <table class="table table-hover">
             <tbody id = "clan-members">
 
             </tbody>
-        </table> 
+        </table>  -->
         </div>
         <div class="form-group">
             <button type="submit" class="btn btn-primary" onclick="vote()">הדח</button>
