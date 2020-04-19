@@ -11,7 +11,6 @@ const firebaseConfig = {
   // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-
 async function getData() {
     const snapshot = await firebase.firestore().collection('users').get()
     return snapshot.docs.map(doc => doc.data());
@@ -23,16 +22,19 @@ async function createTable(){
     const dict = {'a': [], 'b': [], 'c': []};
 
     for (let userData of data){
-        dict[userData.clan].push(userData.name);
+        dict[userData.clan].push(userData);
     }
 
     for (let clan of Object.keys(dict)) {
         const table = document.getElementById("clans-"+clan);
-        for (let name of dict[clan]){
-            var txt = document.createTextNode(name);
+        for (let userData of dict[clan]){
+            var txt = document.createTextNode(userData.name);
+            var c = document.createElement("p");
+            c.innerHTML = "יחידה " + userData.unit;
             var tr = document.createElement("tr");
             var td = document.createElement("td");
             td.appendChild(txt);
+            td.appendChild(c)
             tr.appendChild(td);
             table.appendChild(tr);
         }
