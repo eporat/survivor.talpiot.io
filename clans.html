@@ -50,49 +50,61 @@
 
         <div class="voting"></div>
 
-        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3" style="float: right">
-        <table class="table" id="clans-a" style="float: right">
-            <thead class="thead-light">
-            <tr>
-                <th scope="col" style="background-color: darkblue; color:white">א</th>
-            </tr>
-            </thead>
-        </table>
+        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3" id="tableFixHead"  style="float:right">
+
+            <table class="table table-bordered" style="float:right">
+
+                <tbody id="clans-a">
+                    <thead class="thead-light">
+                        <tr>
+                        <th scope="col" style="background-color: darkblue; color:white">א</th>
+                    </tr>
+                    </thead>
+                </tbody>
+            </table>
+
         </div>
-
                         
-        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3" style="float:right">
+        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3" id="tableFixHead"  style="float:right">
 
-            <table class="table" id="clans-b" style="float:right">
-                <thead class="thead-light">
-                    <tr>
-                    <th scope="col" style="background-color: darkred; color:white">ב</th>
-                </tr>
-                </thead>
+            <table class="table table-bordered" style="float:right">
+                <tbody id="clans-b">
+                    <thead class="thead-light">
+                        <tr>
+                        <th scope="col" style="background-color: darkred; color:white">ב</th>
+                    </tr>
+                    </thead>
+                </tbody>
             </table>
 
         </div>
 
-        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3" style="float: right">
+        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3" id="tableFixHead"  style="float: right">
 
-            <table class="table" id="clans-c" style="float:right">
-                <thead class="thead-light">
-                    <tr>
-                    <th scope="col" style="background-color: darkgreen; color:white">ג</th>
-                </tr>
-                </thead>
+            <table class="table table-bordered" style="float:right">
+
+                <tbody id="clans-c">
+                    <thead class="thead-light">
+                        <tr>
+                        <th scope="col" style="background-color: darkgreen; color:white">ג</th>
+                    </tr>
+                    </thead>
+                </tbody>
             </table>
         </div>
 
         
-        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3" style="float: right">
+        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3" id="tableFixHead" style="float: right">
 
-            <table class="table" id="clans-d" style="float:right">
-                <thead class="thead-light">
-                    <tr>
-                    <th scope="col" style="background-color: gray; color:white">💀 אי המתים</th>
-                </tr>
-                </thead>
+            <table class="table table-bordered" style="float:right">
+
+                <tbody id="clans-d">
+                    <thead class="thead-light">
+                        <tr>
+                        <th scope="col" style="background-color: gray; color:white">💀 אי המתים</th>
+                    </tr>
+                    </thead>
+                </tbody>
             </table>
         </div>
 
@@ -101,9 +113,14 @@
 
       
     <style>
+#tableFixHead          { overflow-y: auto; height: 50vh; }
+#tableFixHead thead th { position: sticky; top: 0; }
 
-    
-        </style>
+/* Just common table stuff. Really. */
+table  { border-collapse: collapse; width: 100%; }
+th, td { padding: 8px 16px; }
+th     { background:#eee; }
+    </style>
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="clans.js"></script>
