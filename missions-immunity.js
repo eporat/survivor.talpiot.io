@@ -39,7 +39,14 @@ async function createTable(){
         }
     }
     console.log(myMission)
-
+    const description = myMission.description
+    for (const str of description){
+        const div = document.getElementById("list");
+        const li = document.createElement("li");
+        li.className = "list-group-item"
+        li.innerHTML = str;
+        div.appendChild(li);
+    }
     data = await getData('users');
 
     for (user of data){
@@ -64,6 +71,8 @@ async function createTable(){
     var missionHeader = document.getElementById("mission");
     console.log(missionHeader)
     missionHeader.innerText = myMission.mission;
+
+
 }
 
 createTable();

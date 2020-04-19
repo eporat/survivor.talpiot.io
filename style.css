@@ -6,7 +6,10 @@
     display: block;
     margin: 0 auto;
 }
-
+html {
+  overflow: 'hidden';
+  height: '100%';
+}
 .form-group {
     padding-top: 2%;
     display: table;
