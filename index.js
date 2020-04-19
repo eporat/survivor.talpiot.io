@@ -14,6 +14,10 @@ firebase.initializeApp(firebaseConfig);
 const database = firebase.firestore();
 const usersRef = database.collection("users");
 
+async function getData() {
+    const snapshot = await firebase.firestore().collection('users').get()
+    return snapshot.docs.map(doc => doc.data());
+}
 
 async function login(){
     const name = document.getElementById("name").value;
@@ -39,8 +43,6 @@ async function login(){
         // await usersRef.doc(name).set(userData)
 
     }
-
-
 }
 
 function choose() {
