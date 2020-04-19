@@ -25,6 +25,9 @@
     left: 15px;
     height: 20%; 
 }
+nav {
+    font-size: 3vh
+}
 .title {
 padding-top: 5%;
 text-align: center;
