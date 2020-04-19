@@ -33,6 +33,7 @@ async function createTable(){
             c.innerHTML = "יחידה " + userData.unit;
             var tr = document.createElement("tr");
             var td = document.createElement("td");
+            td.style.fontSize = "3vh";
             td.appendChild(txt);
             td.appendChild(c)
             tr.appendChild(td);
