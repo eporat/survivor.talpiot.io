@@ -22,7 +22,7 @@ async function getData(name) {
 }
 
 async function createTable(){
-    let data = await getData('missions');
+    let data = await getData('missions-immunity');
     const myUser = JSON.parse(localStorage.getItem("userData"));
     let teams = {};
     let myMission;
@@ -32,32 +32,13 @@ async function createTable(){
             document.getElementById("my-th").style.backgroundColor = colors[myUser.clan];
             document.getElementById("my-clan").style.display = "table"
 
-            units = mission.units.slice()
-            units.splice(units.indexOf(myUser.clan+myUser.unit), 1);
-            console.log(units);
-            for (let key of mission.units){
-                teams[key] = [];
-            }
-            if (units.length == 1){
-                let otherClan = units[0];
-                document.getElementById("other-th-0").style.backgroundColor =  colors[otherClan[0]];
-                document.getElementById("other-clan-0").style.display = "table"
-            }
-            else {
-                let clan1 = units[0];
-                let clan2 = units[1];
-                console.log(clan1[0])
-
-                document.getElementById("other-th-0").style.backgroundColor =  colors[clan1[0]];
-                document.getElementById("other-th-1").style.backgroundColor =  colors[clan2[0]];
-                document.getElementById("other-clan-0").style.display = "table"
-                document.getElementById("other-clan-1").style.display = "table"
-
-
-            }
             myMission = mission;
+            for (unit of mission.units){
+                teams[unit] = [];
+            }
         }
     }
+    console.log(myMission)
 
     data = await getData('users');
 
@@ -78,18 +59,6 @@ async function createTable(){
         td.appendChild(txt);
         tr.appendChild(td);
         myTable.appendChild(tr);
-    }
-
-    for (let i = 0; i < units.length; i++){
-        const opponentTable = document.getElementById("other-clan-"+i);
-        for (let name of teams[units[i]]){
-            var txt = document.createTextNode(name);
-            var tr = document.createElement("tr");
-            var td = document.createElement("td");
-            td.appendChild(txt);
-            tr.appendChild(td);
-            opponentTable.appendChild(tr);
-        }
     }
 
     var missionHeader = document.getElementById("mission");

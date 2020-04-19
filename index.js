@@ -22,23 +22,24 @@ async function login(){
     if (doc.data()) {
         userData = doc.data();
         localStorage.setItem('userData', JSON.stringify(userData));
+        document.location.href = "user.html"
     }
     else {
-        const clan = choose();
-        const userData = {
-            clan: clan,
-            immunity: false,
-            numberOfVotes: 1,
-            unit: chooseUnit(clan),
-            voted: false,
-            name: name
-        }
-        localStorage.setItem('userData', JSON.stringify(userData));
-        await usersRef.doc(name).set(userData)
+        alert("משתמש לא קיים")
+        // const clan = choose();
+        // const userData = {
+        //     clan: clan,
+        //     immunity: false,
+        //     numberOfVotes: 1,
+        //     unit: chooseUnit(clan),
+        //     voted: false,
+        //     name: name
+        // }
+        // localStorage.setItem('userData', JSON.stringify(userData));
+        // await usersRef.doc(name).set(userData)
 
     }
 
-    document.location.href = "user.html"
 
 }
 
