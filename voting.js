@@ -23,20 +23,22 @@ console.log(user);
 
 function addRadioButton(data) {
     var text = data.name;
-    var div = document.getElementById("clan-members");
-    var button = document.createElement("button");
+    var table = document.getElementById("clan-members");
+    var tr = document.createElement("tr");
+    var td = document.createElement("td");
+    tr.appendChild(td);
+    table.appendChild(tr);
     var label = document.createElement("label");
     var element = document.createElement("input");
     //Assign different attributes to the element.
     element.setAttribute("type", "radio");
     element.setAttribute("value", data.name);
-    element.setAttribute("name", "optradio");
-    element.setAttribute("class", "radio");
-    label.className = "d-block";
+    element.style.marginLeft = "10px";
+    element.setAttribute("name", "options");
     label.innerHTML += text;
+    label.className = "btn btn-primary";
     label.appendChild(element);  
-    button.appendChild(label);  
-    div.appendChild(button);
+    td.appendChild(label);
 }
 function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);

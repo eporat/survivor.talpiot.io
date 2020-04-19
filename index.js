@@ -50,7 +50,6 @@ function choose() {
         return "b"
     }
     return "c";
-
 }
 
 
