@@ -29,13 +29,13 @@ async function createTable(){
         const table = document.getElementById("clans-"+clan);
         for (let userData of dict[clan]){
             var txt = document.createTextNode(userData.name);
-            var c = document.createElement("p");
-            c.innerHTML = "יחידה " + userData.unit;
+            // var c = document.createElement("p");
+            // c.innerHTML = "יחידה " + userData.unit;
             var tr = document.createElement("tr");
             var td = document.createElement("td");
             td.style.fontSize = "2vh";
             td.appendChild(txt);
-            td.appendChild(c)
+            // td.appendChild(c)
             tr.appendChild(td);
             table.appendChild(tr);
         }
