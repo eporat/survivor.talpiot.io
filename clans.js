@@ -30,7 +30,7 @@ async function createTable(){
         for (let userData of dict[clan]){
             var txt = document.createTextNode(userData.name);
             // var c = document.createElement("p");
-            // c.innerHTML = "יחידה " + userData.unit;
+            // c.innerText = "יחידה " + userData.unit;
             var tr = document.createElement("tr");
             var td = document.createElement("td");
             td.style.fontSize = "2vh";

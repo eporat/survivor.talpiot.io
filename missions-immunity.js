@@ -44,7 +44,7 @@ async function createTable(){
         const div = document.getElementById("list");
         const li = document.createElement("li");
         li.className = "list-group-item"
-        li.innerHTML = str;
+        li.innerText = str;
         div.appendChild(li);
     }
     data = await getData('users');

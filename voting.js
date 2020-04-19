@@ -34,7 +34,7 @@ function addRadioButton(data) {
     element.setAttribute("value", data.name);
     element.style.marginLeft = "10px";
     element.setAttribute("name", "options");
-    label.innerHTML += text;
+    label.innerText += text;
     label.className = "btn btn-primary";
     label.appendChild(element);  
     wrapper.appendChild(label)
